@@ -1,0 +1,39 @@
+.doctor-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 55px;
+  margin-top: 30px;
+}
+
+.doctors-top {
+  width: 470px;
+  margin: auto;
+}
+
+.doctor-arrow {
+  border: 1px solid black;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s, transform 0.5s;
+}
+
+.doctor-arrow:hover {
+  border: none;
+  background-color: #0067ff;
+  color: white;
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 990px) {
+  .doctor-list {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .doctors-top{
+    width: 100%;
+  }
+}
