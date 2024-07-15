@@ -32,7 +32,7 @@ const Header = () => {
 
     const { user, role, token } = useContext(authContext)
     
-    console.log(user,role,token)
+    // console.log(user,role,token)
 
     const handleStickyHeader = () => {
         window.addEventListener('scroll', () => {
@@ -78,10 +78,10 @@ const Header = () => {
 
                 <div className="flex items-center gap-4">
 
-                    {token && user ? <div >
+                    {token && user ? <div className='flex justify-between items-center'>
                         <Link to={`${role === 'doctor' ? "/doctors/profile/me" : "/users/profile/me"}`}>
-                            <figure className='w-[35px] h-[35px] rounded-full cursor-pointer'>
-                                <img src={user?.photo} className='w-full rounded-full' alt="" />
+                            <figure className='w-[35px] h-[35px] rounded-full cursor-pointer mr-3'>
+                                <img src={user?.photo} className='w-full h-full rounded-full' alt="" />
                             </figure>
                         </Link>
                         <h2>{user?.name}</h2>

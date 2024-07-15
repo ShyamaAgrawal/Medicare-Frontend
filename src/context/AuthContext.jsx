@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useEffect, useReducer } from "react";
 
 const initialState = {
@@ -28,6 +29,10 @@ const authReducer = (state, action) => {
                 role: null,
                 token: null
             }
+        case 'UPDATE':
+            return {
+              user: action.payload.user,
+            };
         default:
             return state;
     }

@@ -162,7 +162,7 @@ const Signup = () => {
                     type="file"
                     name='photo'
                     id='customFile'
-                    onChange={handleFileInput}
+                    onChange={(e)=>handleFileInput(e)}
                     accept='.jpg,.png'
                     className="absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer" />
                   <label htmlFor="customFile"
@@ -173,7 +173,8 @@ const Signup = () => {
               <button
                 disabled={loading}
                 className="btn w-full mt-6"
-                type='submit' >{loading ? <HashLoader size={35} color='#fff' /> : "Sign up"}
+                type='submit' >
+                {loading ? <HashLoader size={35} color='#fff' /> : "Sign up"}
               </button>
               <p className="mt-5 text-center text-textColor">Already have an account? <Link to='/login' className="text-primaryColor hover:underline font-medium">Login</Link>
               </p>

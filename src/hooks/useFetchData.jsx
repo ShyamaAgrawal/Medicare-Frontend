@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { token } from '../../config'
 
 
@@ -9,27 +9,26 @@ const useFetchData = (url) => {
     const [error, setError] = useState(null)
 
     useEffect(()=>{
-        fetchData();
+        fetchData(url);
     },[url])
 
-    const fetchData = async()=>{
+    const fetchData = async(url)=>{
         setLoading(true)
         try {
             // console.log(url)
-            console.log(token,'mai token hu')
+            // console.log(token,'mai token hu')
             const res = await axios.get(url,{
-                headers:{Authorization:`Bearer${token}`}
+                headers:{Authorization:`Bearer ${token}`}
             })
-            console.log(res,'res from get data')
-            setData(res)
+            // console.log(res.data.data,'res from get data')
+            setData(res.data.data)
             setLoading(false)
         } catch (error) {
             setLoading(false)
-            console.log(error,'error from fetch user profile')
-            setError(error.message)
+            console.log(error.response.data.message,'error from fetch user profile')
+            setError(error.response.data.message)
         }
     }
-
     return {
         data,loading,error
     }
