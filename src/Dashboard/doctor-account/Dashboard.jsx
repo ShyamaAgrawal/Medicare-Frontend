@@ -8,6 +8,7 @@ import iota from "../../assets/images/iota.png";
 import star from "../../assets/images/Star (1).png";
 import DoctorAbout from "../../pages/Doctors/DoctorAbout";
 import Profile from "./Profile";
+import Appointments from "./Appointments";
 
 const Dashboard = () => {
   const { data, loading, error } = useFetchData(
@@ -80,7 +81,7 @@ const Dashboard = () => {
                     />
                   </div>
                 )}
-                {tab === "appointments" && <div>Appointments</div>}
+                {tab === "appointments" && <Appointments appointments={data.appointments} />}
                 {tab === "settings" && <Profile doctorData={data} />}
               </div>
               <div></div>
