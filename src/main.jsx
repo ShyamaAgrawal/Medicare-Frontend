@@ -12,7 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
-        <ToastContainer theme='dark' position='top-right' autoClose={3000} closeOnClick pauseOnHover={false} />
+        <ToastContainer theme='dark' position='top-right' autoClose={3000} closeOnClick pauseOnHover={false} style={{zIndex:"100000"}} />
         <App />
       </AuthContextProvider>
     </BrowserRouter>

@@ -15,7 +15,6 @@ const ProfileSettings = ({ user }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    password: "",
     photo: null,
     role: "patient",
     gender: "",
@@ -54,10 +53,9 @@ const ProfileSettings = ({ user }) => {
     const payload = {
       name: `${formData.name}`,
       email: `${formData.email}`,
-      password: `${formData.password}`,
       gender: `${formData.gender}`,
       photo: `${formData.photo}`,
-      bloodType:`${formData.bloodType}`
+      bloodType: `${formData.bloodType}`,
     };
     try {
       // console.log(user._id)
@@ -67,12 +65,11 @@ const ProfileSettings = ({ user }) => {
           Authorization: `Bearer ${token}`,
         },
       });
-      // console.log(res.data.message)
+      console.log(formData)
       setSelectedFile(null);
       setFormData({
         name: "",
         email: "",
-        password: "",
         photo: selectedFile,
         gender: "",
         bloodType: "",
@@ -118,7 +115,7 @@ const ProfileSettings = ({ user }) => {
             readOnly
           />
         </div>
-        <div className="mb-2">
+        {/* <div className="mb-2">
           <input
             className="form-inp"
             type="password"
@@ -127,8 +124,10 @@ const ProfileSettings = ({ user }) => {
             value={formData.password}
             autoComplete="false"
             onChange={(e) => handleInputChange(e)}
+            aria-readonly
+            readOnly
           />
-        </div>
+        </div> */}
         <div className="mb-2">
           <input
             className="form-inp"

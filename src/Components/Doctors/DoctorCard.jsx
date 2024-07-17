@@ -27,7 +27,7 @@ const DoctorCard = ({ doctor }) => {
       </h2>
 
       <div className="flex items-center justify-between mt-2 lg:mt-4">
-        <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-2 lg:py-2 lg:px-6  texr-[12px] lg:text-[16px] leading-4 lg:leading-7 font-semibold rounded">
+        <span className="bg-[#CCF0F3] text-irisBlueColor py-1 px-2 lg:py-2 lg:px-6  text-[12px] lg:text-[16px] leading-4 lg:leading-7 font-semibold rounded">
           {specialization}
         </span>
 
@@ -49,12 +49,12 @@ const DoctorCard = ({ doctor }) => {
           </h3> */}
           <p className="text-[14px] leading-6 font-[400] text-textColor">
             {" "}
-            At {experiences && experiences[0].hospital}
+            At {experiences && experiences[0]?.hospital}
           </p>
         </div>
 
         <div className="doctor-arrow">
-          <Link to="/doctors">
+          <Link to={`/doctors/${doctor._id}`}>
             <BsArrowRight />
           </Link>
         </div>

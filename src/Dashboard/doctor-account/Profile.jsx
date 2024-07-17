@@ -104,6 +104,7 @@ const Profile = ({ doctorData }) => {
         [key]: updateItems,
       };
     });
+    // console.log(formData)
   };
 
   //reusable func for deleting item
@@ -160,8 +161,8 @@ const Profile = ({ doctorData }) => {
     e.preventDefault();
     addItem("timeSlots", {
       day: "",
-      startingTime: "10:00",
-      endingTime: "05:00",
+      startingTime: "",
+      endingTime: "",
     });
   };
   const handleTimeSlotChange = (event, index) => {
@@ -432,7 +433,8 @@ const Profile = ({ doctorData }) => {
                   <select
                     className="form__input py-3.5"
                     value={item.day}
-                    onClick={(e) => handleTimeSlotChange(e, index)}
+                    onChange={(e) => handleTimeSlotChange(e, index)}
+                    name="day"
                   >
                     <option value="">Select</option>
                     <option value="sunday">Sunday</option>
@@ -452,7 +454,7 @@ const Profile = ({ doctorData }) => {
                     name="startingTime"
                     value={item.startingTime}
                     className="form__input"
-                    onClick={(e) => handleTimeSlotChange(e, index)}
+                    onChange={(e) => handleTimeSlotChange(e, index)}
                   />
                 </div>
 
@@ -463,7 +465,7 @@ const Profile = ({ doctorData }) => {
                     name="endingTime"
                     value={item.endingTime}
                     className="form__input"
-                    onClick={(e) => handleTimeSlotChange(e, index)}
+                    onChange={(e) => handleTimeSlotChange(e, index)}
                   />
                 </div>
                 <div className="flex items-center">

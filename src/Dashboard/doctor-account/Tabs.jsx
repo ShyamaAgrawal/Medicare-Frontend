@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { BiMenu } from "react-icons/bi";
 import { authContext } from "../../context/AuthContext";
 import { useContext } from "react";
@@ -10,7 +11,11 @@ const Tabs = ({ tab, setTab }) => {
   const {dispatch} = useContext(authContext)
 
   const handleLogout = () => {
+    // localStorage.removeItem('user')
+    // localStorage.removeItem('token')
+    // localStorage.removeItem('role')
     dispatch({ type: 'LOGOUT' })
+    
     navigate('/')
   }
 
