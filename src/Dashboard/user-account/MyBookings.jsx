@@ -21,7 +21,7 @@ const MyBookings = () => {
 
       {!loading && !error && <div>
         {appointments.map((doctor) => {
-          <DoctorCard doctor={doctor} key={doctor._id} />;
+          return <DoctorCard doctor={doctor} key={doctor._id} />;
         })}
       </div>
       }

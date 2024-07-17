@@ -1,8 +1,38 @@
+import { toast } from "react-toastify";
+import { BASE_URL, token } from "../../../config";
 import convertTime from "../../utils/convertTime";
+import axios from 'axios'
+
 
 /* eslint-disable react/prop-types */
 
 const SidePanel = ({ doctorId, timeSlots, ticketPrice }) => {
+
+  const bookingHandler = async () => {
+    try {
+      const payload = {
+
+      }
+      const response = await axios.post(
+        `${BASE_URL}/checkout-session/${doctorId}`,
+        payload,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      // console.log(response.data.session.url)
+      if (response.data.session.url) {
+        window.location.href = response.data.session.url;
+      }
+    } catch (error) {
+      // console.log(error)
+      toast.error(error.message);
+    }
+  }
+
   return (
     <div
       style={{ boxShadow: "10px 10px 100px lightgray" }}
@@ -26,7 +56,7 @@ const SidePanel = ({ doctorId, timeSlots, ticketPrice }) => {
             </li>
           ))}
         </ul>
-        <button className="btn w-full">Book Appointment</button>
+        <button onClick={bookingHandler} className="btn w-full">Book Appointment</button>
       </div>
     </div>
   );
